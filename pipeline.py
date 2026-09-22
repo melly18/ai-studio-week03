@@ -41,7 +41,6 @@ df["월"] = df["주문일자"].dt.month
 
 by_cat = df.groupby("카테고리")["매출액"].sum().rename("총매출")
 by_cat = by_cat.sort_values(ascending=False).reset_index()
-print(by_cat)
 
 report = df.groupby(["월", "카테고리"])["매출액"].agg(총매출="sum", 평균매출="mean", 거래건수="count")
 report = report.reset_index()
